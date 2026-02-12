@@ -7,7 +7,7 @@ function App() {
 return (
      <div className="min-h-screen bg-gray-50 text-gray-800">
 
-      {/* NAVBAR */}
+      
       <nav className="bg-white shadow-md fixed w-full z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
           <h1 className="text-5xl font-bold text-BLACK-600">IMPRINT MEDIA</h1>
@@ -21,7 +21,7 @@ return (
         </div>
       </nav>
 
-      {/* HERO */}
+    
       <section className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white pt-32 pb-24 px-6 text-center">
         <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
           We Design. We Print. We Advertise.
@@ -31,9 +31,9 @@ return (
           Your one-stop solution for branding, printing, advertising, and corporate brand development.
         </p>
 
-        <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-bold hover:scale-105 transition">
+        {/* <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-bold hover:scale-105 transition">
           Get Quote
-        </button>
+        </button> */}
       </section>
 
       {/* SERVICES */}
@@ -100,9 +100,11 @@ return (
       <section id="contact" className="bg-purple-600 text-white py-20 px-6 text-center">
         <h3 className="text-4xl font-bold mb-6">Let’s Work Together</h3>
         <p className="mb-8">Contact us today for professional branding and printing services.<br/>
-        Phone:07xxxxxx
+        Phone:0714777678
         <br/>
         Instagram:
+        <br/>
+        Email:
         </p>
        
         <button className="bg-white text-purple-600 px-10 py-3 rounded-full font-bold hover:scale-105 transition">
