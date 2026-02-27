@@ -1,127 +1,144 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { useState } from "react";
+import "./App.css";
+import { Menu, X } from "lucide-react";
 function App() {
-return (
-     <div className="min-h-screen bg-gray-50 text-gray-800">
+const [videoURL, setVideoURL] = useState("https://pin.it/7BrxEHVsF");
+const [isOpen, setIsOpen] = useState(false);
+const handleUpload = (e) => {
+const file = e.target.files[0];
+if (file) {
+const url = URL.createObjectURL(file);
+setVideoURL(url);
+}
+};
 
-      
-      <nav className="bg-white shadow-md fixed w-full z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
-          <h1 className="text-5xl font-bold text-BLACK-600">IMPRINT MEDIA</h1>
+return ( <div className="relative min-h-screen bg-black text-white">
 
-          <div className="space-x-6 hidden md:block font-medium">
-            <a href="#services" className="hover:text-purple-600">Services</a>
-            <a href="#portfolio" className="hover:text-purple-600">Portfolio</a>
-            <a href="#about" className="hover:text-purple-600">About</a>
-            <a href="#contact" className="hover:text-purple-600">Contact</a>
-          </div>
-        </div>
-      </nav>
+<nav className="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur px-6 py-6">
 
-    
-      <section className="bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 text-white pt-32 pb-24 px-6 text-center">
-        <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-          We Design. We Print. We Advertise.
-        </h2>
+  <div className="flex justify-between items-center">
 
-        <p className="max-w-2xl mx-auto text-lg mb-8">
-          Your one-stop solution for branding, printing, advertising, and corporate brand development.
-        </p>
+    {/* Logo */}
+    <div className="text-xl font-bold tracking-widest">
+      IMPRINT MEDIA
+    </div>
+ 
+    <div className="hidden md:flex gap-8 text-sm">
+      <a href="#work" className="hover:text-gray-300">Work</a>
+      <a href="#about" className="hover:text-gray-300">About</a>
+      <a href="#people" className="hover:text-gray-300">People</a>
+      <a href="#contacts" className="hover:text-gray-300">Contact</a>
+    </div>
 
-        {/* <button className="bg-white text-purple-600 px-8 py-3 rounded-full font-bold hover:scale-105 transition">
-          Get Quote
-        </button> */}
-      </section>
+    <button
+      className="md:hidden"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      {isOpen ? <X size={28} /> : <Menu size={28} />}
+    </button>
 
-      {/* SERVICES */}
-      <section id="services" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-4xl font-bold mb-12">Our Services</h3>
+  </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-
-            {/* Printing */}
-            <div className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition">
-              <h4 className="text-xl font-bold mb-3">Printing</h4>
-              <p>Posters, banners, business cards, t-shirts, stickers and more.</p>
-            </div>
-
-            {/* Advertising */}
-            <div className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition">
-              <h4 className="text-xl font-bold mb-3">Advertising</h4>
-              <p>Billboards, social media adverts, marketing campaigns.</p>
-            </div>
-
-            {/* Personal Branding */}
-            <div className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition">
-              <h4 className="text-xl font-bold mb-3">Personal Branding</h4>
-              <p>Logos, CV branding, portfolio branding, social media kits.</p>
-            </div>
-
-            {/* Company Branding */}
-            <div className="bg-white p-8 rounded-2xl shadow hover:shadow-xl transition">
-              <h4 className="text-xl font-bold mb-3">Company Branding</h4>
-              <p>Corporate identity, brand guidelines, packaging design.</p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* PORTFOLIO */}
-      <section id="portfolio" className="bg-gray-100 py-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h3 className="text-4xl font-bold mb-12">Our Work</h3>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="h-60 bg-gradient-to-br from-purple-400 to-pink-400 rounded-xl"></div>
-            <div className="h-60 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-xl"></div>
-            <div className="h-60 bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl"></div>
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section id="about" className="py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h3 className="text-4xl font-bold mb-6">About Us</h3>
-          <p className="text-lg text-gray-600">
-            Imprint Media is a creative company specializing in printing, advertising,
-            and brand development. We help businesses and individuals stand out with
-            professional, high-quality branding solutions.
-          </p>
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className="bg-purple-600 text-white py-20 px-6 text-center">
-        <h3 className="text-4xl font-bold mb-6">Let’s Work Together</h3>
-        <p className="mb-8">Contact us today for professional branding and printing services.<br/>
-        Phone:0714777678
-        <br/>
-        Instagram:
-        <br/>
-        Email:
-        </p>
-       
-        <button className="bg-white text-purple-600 px-10 py-3 rounded-full font-bold hover:scale-105 transition">
-          Contact Us
-        </button>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="bg-black text-white text-center p-6">
-        <p>© 2026 Imprint Media. All Rights Reserved.</p>
-      </footer>
+  {/* Mobile Menu */}
+  {isOpen && (
+    <div className="md:hidden flex flex-col gap-6 mt-6 text-center text-sm">
+      <a href="#work" onClick={() => setIsOpen(false)}>Work</a>
+      <a href="#about" onClick={() => setIsOpen(false)}>About</a>
+      <a href="#people" onClick={() => setIsOpen(false)}>People</a>
+      <a href="#contacts" onClick={() => setIsOpen(false)}>Contact</a>
 
     </div>
-  )
+  )}
+
+</nav>
+
+  {/* HERO TEXT SECTION */}
+  <section className="text-white pt-32 pb-12 px-6 text-center">
+    <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
+      We Design. We Print. We Advertise.
+    </h2>
+
+    <p className="max-w-2xl mx-auto text-lg">
+      Your one-stop solution for branding, printing, advertising,
+      and corporate brand development.
+    </p>
+  </section>
+
+  {/*VIDEO HERO SECTION */}
+  <div className="relative h-screen w-full overflow-hidden">
+
+    <video
+      className="absolute w-full h-full object-cover"
+      src={videoURL}
+      autoPlay
+      muted
+      loop
+      playsInline
+    />
+
+    <div className="absolute inset-0 bg-black/40"></div>
+
+    <div className="absolute inset-0 flex items-center justify-center">
+      <button className="border border-white px-8 py-3 tracking-widest hover:bg-white hover:text-black transition">
+        VIEW SHOWREEL
+      </button>
+    </div>
+
+  </div>
+  <section id="work" className="min-h-screen black text-white px-6 py-20">
+  <h2 className="text-4xl font-bold mb-6">Our Work</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <img
+      src="\assets\Img.jpg"
+      alt="Project"
+      className="rounded-xl shadow-lg hover:scale-105 transition duration-300"
+    />
+    <img
+      src="\assets\Img1.jpg"
+      alt="Project 1"
+      className="rounded-xl shadow-lg hover:scale-105 transition duration-300"
+    />
+    <img
+      src="\assets\Img2.jpg"
+      alt="Project 2"
+      className="rounded-xl shadow-lg hover:scale-105 transition duration-300"
+    />
+    </div>
+</section>
+<section id="about" className="bg-black text-white px-6 py-20">
+  <h2 className="text-4xl font-bold mb-6">About</h2>
+  <p className="max-w-3xl mx-auto text-center text-lg leading-relaxed"><i>We are visual storytellers and brand architects, capturing moments and crafting identities that leave lasting impressions. From high-profile political campaigns and corporate branding projects to intimate weddings, vibrant birthdays, and unforgettable housewarming celebrations, we bring creativity, precision, and passion to every assignment. As photographers, we freeze powerful moments in time; as branding specialists, we shape how individuals, businesses, and public figures are seen and remembered. Whether it’s designing compelling campaign visuals, building a company’s brand presence, documenting milestone celebrations, or creating promotional content that speaks with clarity and confidence, we turn ideas into impactful visual experiences that connect, inspire, and elevate.</i></p>
+  </section>
+  <section id="contact" className="bg-black text-white px-6 py-20">
+  <h2 className="text-4xl font-bold mb-6">Contact</h2>
+  <p className="max-w-3xl mx-auto text-center text-lg leading-relaxed">imprintmedia@gmail <br/>imprintmedi@creativity</p>
+  </section>
+
+  {/*UPLOAD SECTION  */}
+  {/* <div className="p-10 bg-black text-center">
+    <h2 className="text-xl mb-4">Upload Your Reel</h2>
+
+    <input
+      type="file"
+      accept="video/*"
+      onChange={handleUpload}
+      className="bg-white text-black p-2 rounded"
+    />
+  </div> */}
+
+  {/* FOOTER  */}
+  <footer className="bg-black text-white text-center p-6">
+    <div className="md:flex gap-6 text-sm">
+      <span>Tiktok</span>
+      <span>Instagram</span>
+    </div>
+    <p>© 2026 Imprint Media. All Rights Reserved.</p>
+  </footer>
+
+</div>
+
+);
 }
- 
-  
 
-
-export default App
+export default App;
