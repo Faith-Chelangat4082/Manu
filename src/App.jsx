@@ -3,7 +3,7 @@ import { FaTiktok, FaInstagram } from "react-icons/fa";
 import "./App.css";
 import { Menu, X } from "lucide-react";
 function App() {
-const [videoURL, setVideoURL] = useState("https://pin.it/7BrxEHVsF");
+const [videoURL, setVideoURL] = useState("https://video-previews.elements.envatousercontent.com/h264-video-previews/a21919f0-7277-4a52-a39d-7b565f73b0d9/10650710.mp4");
 const [isOpen, setIsOpen] = useState(false);
 const handleUpload = (e) => {
 const file = e.target.files[0];
