@@ -20,8 +20,8 @@ return ( <div className="relative min-h-screen bg-black text-white">
   <div className="flex justify-between items-center">
 
     {/* Logo */}
-    <div className="text-xl font-bold tracking-widest">
-      IMPRINT MEDIA
+    <div className="text-xl font-bold tracking-widest ">
+    VIVIDINK MEDIA
     </div>
  
     <div className="hidden md:flex gap-8 text-sm">
@@ -149,7 +149,7 @@ return ( <div className="relative min-h-screen bg-black text-white">
     </a>
 
   </div>
-   <p>© 2026 Imprint Media. All Rights Reserved.</p>
+   <p>© 2026 Vividink Media. All Rights Reserved.</p>
 </footer>
    
 </div>
